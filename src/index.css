@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-nestle-50: #e8f1f8;
+  --color-nestle-100: #c5dcef;
+  --color-nestle-200: #9ec4e0;
+  --color-nestle-300: #6fa4cc;
+  --color-nestle-400: #0078c8;
+  --color-nestle-500: #0066b8;
+  --color-nestle-600: #0056a3;
+  --color-nestle-700: #004070;
+  --color-nestle-800: #003056;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  @apply m-0 antialiased text-slate-800 bg-slate-50;
+}
+
+#root {
+  @apply min-h-svh;
+}

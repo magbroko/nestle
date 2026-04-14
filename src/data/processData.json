@@ -1,0 +1,412 @@
+{
+  "version": "1.0",
+  "siteName": "Nestlé at a Glance",
+  "siteSubtitle": "Industrial Process Intelligence — Nestlé Waters",
+  "modules": [
+    {
+      "id": "abaji-production",
+      "title": "Abaji Production — Water to Pallet",
+      "subtitle": "Case-aligned overview from deep-well extraction through treatment, bottling, labeling, packaging, and palletizing.",
+      "category": "production",
+      "emphasisRoles": ["beginner", "technician"],
+      "estimatedMinutes": 22,
+      "keywords": [
+        "abaji",
+        "production",
+        "deep well",
+        "extraction",
+        "treatment",
+        "bottling",
+        "labeling",
+        "packaging",
+        "pallet",
+        "line"
+      ],
+      "safetyInsights": [
+        "Confined-space and slip risks near sumps and drains — follow local permit rules.",
+        "Hot surfaces and steam during CIP — verify isolation before opening circuits.",
+        "Pinch and shear points on conveyors, labelers, and palletizers — guards are mandatory.",
+        "Chemical exposure during sanitation — SDS, PPE, and buddy checks as per site SOP.",
+        "Forklift / AGV interaction zones — stay within marked walkways and wear hi-vis."
+      ],
+      "quiz": [
+        {
+          "id": "pq1",
+          "question": "Why is deep-well extraction monitored before the treatment train?",
+          "options": [
+            "To increase pallet pattern density",
+            "To catch raw-water excursions early and protect downstream barriers",
+            "To slow the filler intentionally",
+            "To disable the labeler vision system"
+          ],
+          "correctIndex": 1,
+          "feedbackWrong": "Raw-water quality shifts first appear at the source; early detection protects media, membranes, and chemical dosing stability."
+        },
+        {
+          "id": "pq2",
+          "question": "Labeling defects most often trace back to:",
+          "options": [
+            "Warehouse music volume",
+            "Web alignment, tension control, or vision trigger timing",
+            "Pallet stretch-wrap torque only",
+            "Office printer settings"
+          ],
+          "correctIndex": 1,
+          "feedbackWrong": "Label application is sensitive to mechanical alignment and electronic triggers; verify mechanical setup before blaming upstream water."
+        },
+        {
+          "id": "pq3",
+          "question": "Before releasing a pallet to logistics, which pairing is most critical?",
+          "options": [
+            "Cap color and shrink oven brand",
+            "Case count, case coding, and WMS scan validation",
+            "Operator shoe size",
+            "Break-room roster"
+          ],
+          "correctIndex": 1,
+          "feedbackWrong": "Traceability depends on correct case coding and a clean handoff to the warehouse system of record."
+        }
+      ],
+      "timeline": [
+        {
+          "id": "extract",
+          "title": "Water Extraction (Deep Well)",
+          "shortLabel": "Extract",
+          "whatIsThis": "Groundwater is lifted from permitted deep wells through screened intakes and pumped toward onsite break tanks. This is the boundary where ‘factory water’ begins — before any treatment barrier.",
+          "mechanicalSpecs": "Typical assets include submersible or line-shaft pumps, VFD-controlled motors, wellhead flow/totalizing meters, and raw-water analytics (conductivity, turbidity, optional organics scanning). NPSH margins and pump curves are validated against seasonal drawdown.",
+          "diagramSteps": [
+            "Wellhead → screening → lift pump",
+            "Flow metering & raw-water sampling",
+            "Break tank / transfer to treatment header"
+          ],
+          "operationalRisks": [
+            "Pump cavitation or loss of prime if level controls drift",
+            "Screen blinding increasing differential and starving downstream flow",
+            "Instrumentation freeze causing untreated diversion — follow alarm response cards"
+          ]
+        },
+        {
+          "id": "treat",
+          "title": "Treatment",
+          "shortLabel": "Treat",
+          "whatIsThis": "A multi-barrier train removes particles, adjusts chemistry, and polishes water to the specification required for the SKU family. Each step has validated setpoints tied to HACCP or site equivalent.",
+          "mechanicalSpecs": "May include multimedia filters, activated carbon, cartridge guards, membrane racks, UV, and controlled disinfection residual management. Critical instruments: differential pressure, SDI/turbidity trends, membrane flux, and interlock permissives to the filler loop.",
+          "diagramSteps": [
+            "Coagulation / media filtration (as designed)",
+            "Carbon & fine filtration",
+            "Membrane / UV / residual control → product water header"
+          ],
+          "operationalRisks": [
+            "Membrane fouling or carbon breakthrough shifting organics",
+            "Chemical dosing drift affecting pH/residual",
+            "Bypass valves left manual-open after maintenance"
+          ]
+        },
+        {
+          "id": "bottle",
+          "title": "Bottling",
+          "shortLabel": "Bottle",
+          "whatIsThis": "Sterile or hygienic filling places the correct volume into bottles under controlled environment conditions, then applies closures with torque and presence checks.",
+          "mechanicalSpecs": "Rotary or linear fillers, HEPA or controlled airflow where applicable, capper with torque feedback, checkweigher, reject tracking, and CIP/SIP interlocks to the MES batch record.",
+          "diagramSteps": [
+            "Bottle transfer → rinser/filler block",
+            "Cap application & inline checks",
+            "Reject lane / cause logging in MES"
+          ],
+          "operationalRisks": [
+            "Fill valve hang-up creating chronic under/over fill",
+            "Cap skew causing line stoppages and rework",
+            "False rejects if checkweigher drifts out of calibration"
+          ]
+        },
+        {
+          "id": "label",
+          "title": "Labeling",
+          "shortLabel": "Label",
+          "whatIsThis": "Applies primary labels with correct artwork, registration, and lot coding. Vision systems confirm presence and basic quality attributes at line speed.",
+          "mechanicalSpecs": "Unwind tension control, registration marks, peel plate geometry, nip rollers, and vision exposure tuning. Changeovers tie to verified SKU recipes.",
+          "diagramSteps": [
+            "Roll unwind → web guide",
+            "Apply & wrap / spot label per format",
+            "Vision verify → merge to packaging"
+          ],
+          "operationalRisks": [
+            "Web breaks from tension spikes",
+            "Adhesive cold-flow in winter months affecting lap seams",
+            "Wrong artwork loaded — always barcode-scan rolls"
+          ]
+        },
+        {
+          "id": "pack",
+          "title": "Packaging",
+          "shortLabel": "Pack",
+          "whatIsThis": "Groups bottles into shippers, applies case coding, and prepares stable unit loads for the palletizer. This is where consumer packs become logistics units.",
+          "mechanicalSpecs": "Wraparounds, partition inserters, case erectors, glue or tape systems, inkjet/laser coders with verified contrast, and case squaring before pallet patterns.",
+          "diagramSteps": [
+            "Multi-pack collation",
+            "Case forming & sealing",
+            "Print & verify case code"
+          ],
+          "operationalRisks": [
+            "Weak case seals leading to downstream jams",
+            "Coder contrast failure → unreadable logistics scans",
+            "Partition mis-feed causing product scuffing"
+          ]
+        },
+        {
+          "id": "pallet",
+          "title": "Palletizing",
+          "shortLabel": "Pallet",
+          "whatIsThis": "Stacks cases into approved patterns, applies slip sheets or tier sheets as required, and hands off stretch-wrapped or strapped loads to warehouse traffic.",
+          "mechanicalSpecs": "Layer-forming logic, vacuum or clamp end-of-arm tooling, pattern tables per SKU, stretch-wrapper film tension, and AGV / forklift interface scanners.",
+          "diagramSteps": [
+            "Layer form → build height",
+            "Interleave / tier sheets",
+            "Wrap / strap → WMS release"
+          ],
+          "operationalRisks": [
+            "Unstable patterns if case dimensions vary",
+            "Robot envelope entry while not in teach mode — never bypass light curtains",
+            "AGV handshake faults blocking dispatch lanes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abaji-industrial-services",
+      "title": "Abaji Industrial Services",
+      "subtitle": "Chillers, air handling, compressed air, and effluent treatment — the invisible systems that stabilize every filling hour.",
+      "category": "industrial-services",
+      "emphasisRoles": ["technician", "engineer"],
+      "estimatedMinutes": 18,
+      "keywords": [
+        "chiller",
+        "ahu",
+        "compressor",
+        "effluent",
+        "etp",
+        "utilities",
+        "hvac",
+        "air"
+      ],
+      "safetyInsights": [
+        "Lockout/tagout on rotating equipment and electrical isolators before service.",
+        "Chemical handling in water treatment / ETP areas — full PPE and spill kits.",
+        "Working at height on AHU galleries — harness and barricades per site rules.",
+        "Hearing conservation zones around compressors — signage is mandatory.",
+        "Confined-space entry to tanks or sumps — permits and gas checks only."
+      ],
+      "quiz": [
+        {
+          "id": "iq1",
+          "question": "Rising approach temperature on a chiller often suggests:",
+          "options": [
+            "Better COP",
+            "Fouling, non-condensables, or refrigerant charge issues",
+            "Higher pallet stack height",
+            "Labeler misalignment"
+          ],
+          "correctIndex": 1,
+          "feedbackWrong": "Heat rejection paths and charge quality dominate chiller stability — trend pressures and subcooling before adjusting setpoints blindly."
+        },
+        {
+          "id": "iq2",
+          "question": "Why monitor oil carryover on compressors?",
+          "options": [
+            "It improves taste",
+            "It protects air quality for product-contact pneumatics and points of use",
+            "It replaces PM schedules",
+            "It increases effluent pH automatically"
+          ],
+          "correctIndex": 1,
+          "feedbackWrong": "Oil aerosols can foul dryers and risk product-contact contamination if coalescing stages are degraded."
+        }
+      ],
+      "timeline": [
+        {
+          "id": "chiller",
+          "title": "Chiller Operations",
+          "shortLabel": "Chiller",
+          "whatIsThis": "Removes heat from process circuits — often tied to syrup cooling, heat exchangers, or critical HVAC loads. Stable chilled water temperature keeps filling and batching predictable.",
+          "mechanicalSpecs": "Evaporator / condenser approach temps, refrigerant circuits, oil management, economizers where fitted, and staging logic across machines. BMS points: CHWS/CHWR, tonnage, kW/ton, alarm shelving rules.",
+          "diagramSteps": [
+            "Load → evaporator heat pickup",
+            "Compressor / refrigerant cycle",
+            "Condenser heat rejection → tower or dry cooler"
+          ],
+          "operationalRisks": [
+            "Low flow trips if balance valves drift",
+            "Head pressure excursions from tower fouling",
+            "Hard starts after power blips without proper restart sequencing"
+          ]
+        },
+        {
+          "id": "ahu",
+          "title": "Air Handling Units (AHU)",
+          "shortLabel": "AHU",
+          "whatIsThis": "Treats and moves air for hygiene zones, comfort, or equipment cooling. Filtration stages and pressure cascades protect sensitive processes.",
+          "mechanicalSpecs": "Supply/return fans with VFDs, heating/cooling coils, filters (G4–H13 depending on zone), humidification if installed, and room pressure monitors tied to alarms.",
+          "diagramSteps": [
+            "Fresh / return air mix",
+            "Filtration → coil battery",
+            "Supply duct → room pressure control"
+          ],
+          "operationalRisks": [
+            "Clogged filters increasing fan energy and starving airflow",
+            "Frozen coils if glycol strength or valves fail",
+            "Loss of cascade pressure risking cross-contamination paths"
+          ]
+        },
+        {
+          "id": "compressor",
+          "title": "Compressors",
+          "shortLabel": "Compress",
+          "whatIsThis": "Generates plant air for pneumatics, actuators, and sometimes instrument air after appropriate drying and filtration.",
+          "mechanicalSpecs": "Oil-free or treated oil-flooded compressors, intercoolers, desiccant or refrigerant dryers, coalescing filters, dew point monitors, and receiver sizing for demand events.",
+          "diagramSteps": [
+            "Compression stages",
+            "Cooling & moisture separation",
+            "Dryer → ring main → drops"
+          ],
+          "operationalRisks": [
+            "High dew point if dryer towers fail to switch",
+            "Undersized receiver causing pressure sag and filler faults",
+            "Leaks — the largest hidden energy thief"
+          ]
+        },
+        {
+          "id": "etp",
+          "title": "Effluent Treatment",
+          "shortLabel": "ETP",
+          "whatIsThis": "Treats process and sanitary effluent prior to discharge under permit. Protects community watercourses and keeps the site within regulatory consent.",
+          "mechanicalSpecs": "Equalization, pH control, DAF or clarification as designed, biological reactors, final polishing, sludge handling, and online parameter logging for compliance reporting.",
+          "diagramSteps": [
+            "Influent characterization",
+            "Primary / chemical adjustment",
+            "Biological treatment → final discharge monitoring"
+          ],
+          "operationalRisks": [
+            "Shock loads from CIP batches affecting biology",
+            "Sensor drift causing false compliance readings",
+            "Chemical storage incompatibility — segregation is non-negotiable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abaji-safety-systems",
+      "title": "Safety Systems & Field Discipline",
+      "subtitle": "Interlocks, stops, and behaviors that keep teams safe around motion, energy, and chemistry.",
+      "category": "safety",
+      "emphasisRoles": ["beginner", "engineer"],
+      "estimatedMinutes": 14,
+      "keywords": [
+        "safety",
+        "interlock",
+        "e-stop",
+        "loto",
+        "permit",
+        "hazard"
+      ],
+      "safetyInsights": [
+        "Never defeat a guard or interlock — use the management of change process.",
+        "LOTO is personal verification, not a tag on a handle you did not isolate.",
+        "E-stops are for emergencies, not production pacing.",
+        "Energy isolation includes pneumatic and stored mechanical energy.",
+        "Report near-misses; they are free lessons before harm occurs."
+      ],
+      "quiz": [
+        {
+          "id": "sq1",
+          "question": "A light curtain is muted during a setup task. Who must authorize and how is risk reduced?",
+          "options": [
+            "Anyone on shift — no extra controls",
+            "Authorized person under a defined safe setup procedure with reduced speed and restricted access",
+            "Only the fastest operator",
+            "Mute is always illegal — never mind context"
+          ],
+          "correctIndex": 1,
+          "feedbackWrong": "Muting is sometimes engineered for setup — it must follow written procedures, training, and reduced risk states."
+        },
+        {
+          "id": "sq2",
+          "question": "Permissive logic in a PLC / safety PLC primarily ensures:",
+          "options": [
+            "Faster SKU changes",
+            "Motion only occurs when required safe states are proven",
+            "Higher air pressure always",
+            "Automatic guard removal"
+          ],
+          "correctIndex": 1,
+          "feedbackWrong": "Permissives prove guards closed, air present, alignment complete, etc., before energizing motion."
+        }
+      ],
+      "timeline": [
+        {
+          "id": "hazard",
+          "title": "Hazard Identification",
+          "shortLabel": "Identify",
+          "whatIsThis": "A structured look at what can hurt people: motion, hot surfaces, stored energy, chemicals, noise, and human factors. Hazards are recorded before controls are chosen.",
+          "mechanicalSpecs": "Methodologies aligned to ISO 12100-style risk assessment, severity × exposure matrices, and verification against PL/SIL targets where machinery directives apply.",
+          "diagramSteps": [
+            "Task observation",
+            "Energy mapping",
+            "Control decision record"
+          ],
+          "operationalRisks": [
+            "Undocumented tasks after line modifications",
+            "Assuming ‘common sense’ replaces assessment"
+          ]
+        },
+        {
+          "id": "guard",
+          "title": "Guarding & Access Control",
+          "shortLabel": "Guard",
+          "whatIsThis": "Physical and electronic barriers that prevent reach into danger zones while production runs. Access doors use interlocks rather than ‘clever workarounds’.",
+          "mechanicalSpecs": "RFID keys, tongue interlocks, coded magnets, safety-rated relays, and reset policies that prevent automatic restart after breach.",
+          "diagramSteps": [
+            "Fixed guarding",
+            "Movable guards with interlocks",
+            "Teach / setup modes with reduced risk"
+          ],
+          "operationalRisks": [
+            "Cable-tied interlocks defeated ‘just for a minute’",
+            "Unverified spare parts changing switch operating distances"
+          ]
+        },
+        {
+          "id": "estop",
+          "title": "Emergency Stop Philosophy",
+          "shortLabel": "E-stop",
+          "whatIsThis": "Red mushroom devices that command a stop category designed into the machine. They exist to reduce harm when something goes wrong — not for coffee breaks.",
+          "mechanicalSpecs": "Category 0/1 behavior per machine standard, monitored dual-channel chains, safe torque-off on drives, and time-stamped event capture in diagnostics.",
+          "diagramSteps": [
+            "Detect actuation",
+            "Remove motive power / invoke STO",
+            "Require intentional reset — no auto restart"
+          ],
+          "operationalRisks": [
+            "Confusing e-stop with normal stop causing nuisance trips",
+            "Reset without root-cause check"
+          ]
+        },
+        {
+          "id": "loto",
+          "title": "LOTO & Field Execution",
+          "shortLabel": "LOTO",
+          "whatIsThis": "Lockout/tagout proves zero energy before hands enter the line. Each worker applies their own lock where they personally verified isolation.",
+          "mechanicalSpecs": "Written procedures per asset, step-by-step verification (voltage testers, try-out), group lock boxes, and shift transfer rules.",
+          "diagramSteps": [
+            "Notify → shut down",
+            "Isolate all energies",
+            "Try restart, apply locks/tags, proceed"
+          ],
+          "operationalRisks": [
+            "Adjacent lines left running without barriers",
+            "Rushing during night shift turnover"
+          ]
+        }
+      ]
+    }
+  ]
+}
