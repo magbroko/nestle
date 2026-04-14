@@ -36,6 +36,11 @@ export function DashboardPage() {
     <div className="min-h-svh bg-slate-50">
       <SiteHeader />
       <PageContainer>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        >
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <Link
@@ -46,7 +51,7 @@ export function DashboardPage() {
               Back to overview
             </Link>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900">
-              Learning dashboard
+              Factory Intelligence Hub
             </h1>
             <p className="mt-2 max-w-2xl text-slate-600">
               Browse by system area or follow your role-based sequence. Search
@@ -91,6 +96,7 @@ export function DashboardPage() {
             &quot;ahu&quot;, or &quot;safety&quot;.
           </p>
         )}
+        </motion.div>
       </PageContainer>
     </div>
   )

@@ -5,13 +5,13 @@ import { useRole } from '../../context/RoleContext'
 const roles: { id: RolePath; label: string; hint: string }[] = [
   {
     id: 'beginner',
-    label: 'Beginner',
-    hint: '“What is this?” — definitions first',
+    label: 'New Hire',
+    hint: 'Definitions-first, lighter technical density',
   },
   {
     id: 'technician',
-    label: 'Technician',
-    hint: 'Mechanical context & stage risks',
+    label: 'Manager',
+    hint: 'Operational overview with stage risks & specs',
   },
   {
     id: 'engineer',

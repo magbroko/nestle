@@ -16,10 +16,10 @@ export function SiteFooter() {
         </div>
         <div className="flex flex-wrap gap-4 text-sm text-slate-600">
           <Link to="/app" className="font-medium hover:text-nestle-700">
-            Dashboard
+            Intelligence hub
           </Link>
-          <Link to="/scan" className="font-medium hover:text-nestle-700">
-            QR entry
+          <Link to="/#quick-access" className="font-medium hover:text-nestle-700">
+            Quick access
           </Link>
         </div>
       </div>

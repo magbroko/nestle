@@ -5,8 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/app', label: 'Dashboard' },
-  { to: '/scan', label: 'QR Entry' },
+  { to: '/app', label: 'Intelligence Hub' },
 ] as const
 
 export function SiteHeader() {
@@ -31,19 +30,25 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                pathname === l.to
-                  ? 'bg-nestle-50 text-nestle-900'
-                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
-              }`}
-            >
-              {l.label}
-            </Link>
-          ))}
+          {links.map((l) => {
+            const active =
+              l.to === '/'
+                ? pathname === '/'
+                : l.to === '/app' && pathname.startsWith('/app')
+            return (
+              <Link
+                key={l.to}
+                to={l.to}
+                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                  active
+                    ? 'bg-nestle-50 text-nestle-900'
+                    : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                }`}
+              >
+                {l.label}
+              </Link>
+            )
+          })}
         </nav>
 
         <button
@@ -65,20 +70,26 @@ export function SiteHeader() {
             className="overflow-hidden border-t border-slate-100 bg-white md:hidden"
           >
             <div className="flex flex-col gap-1 px-4 py-3">
-              {links.map((l) => (
-                <Link
-                  key={l.to}
-                  to={l.to}
-                  onClick={() => setOpen(false)}
-                  className={`rounded-xl px-3 py-3 text-sm font-medium ${
-                    pathname === l.to
-                      ? 'bg-nestle-50 text-nestle-800'
-                      : 'text-slate-700 hover:bg-slate-50'
-                  }`}
-                >
-                  {l.label}
-                </Link>
-              ))}
+              {links.map((l) => {
+                const active =
+                  l.to === '/'
+                    ? pathname === '/'
+                    : l.to === '/app' && pathname.startsWith('/app')
+                return (
+                  <Link
+                    key={l.to}
+                    to={l.to}
+                    onClick={() => setOpen(false)}
+                    className={`rounded-xl px-3 py-3 text-sm font-medium ${
+                      active
+                        ? 'bg-nestle-50 text-nestle-800'
+                        : 'text-slate-700 hover:bg-slate-50'
+                    }`}
+                  >
+                    {l.label}
+                  </Link>
+                )
+              })}
             </div>
           </motion.div>
         )}

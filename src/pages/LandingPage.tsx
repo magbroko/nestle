@@ -1,4 +1,5 @@
 import { Hero } from '../components/landing/Hero'
+import { QuickAccessGrid } from '../components/landing/QuickAccessGrid'
 import { WhoItsFor } from '../components/landing/WhoItsFor'
 import { KeyBenefits } from '../components/landing/KeyBenefits'
 import { HowItWorks } from '../components/landing/HowItWorks'
@@ -11,6 +12,7 @@ export function LandingPage() {
       <SiteHeader />
       <main className="flex-1">
         <Hero />
+        <QuickAccessGrid />
         <WhoItsFor />
         <KeyBenefits />
         <HowItWorks />

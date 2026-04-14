@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import type { TimelineStage } from '../../types'
 import { useRole } from '../../context/RoleContext'
@@ -7,16 +7,29 @@ import { GlassCard } from '../ui/GlassCard'
 
 type Props = {
   stages: TimelineStage[]
+  /** When present (e.g. from URL `?stage=`), opens that timeline stage. */
+  initialStageId?: string | null
 }
 
 /**
  * Interactive factory map: vertical timeline on small screens, horizontal
  * scroll-snap cards on large screens. Expands for explanations + micro-flow.
  */
-export function ProcessTimeline({ stages }: Props) {
+export function ProcessTimeline({ stages, initialStageId }: Props) {
   const { role } = useRole()
   const showTechnical = role === 'technician' || role === 'engineer'
-  const [openId, setOpenId] = useState<string | null>(stages[0]?.id ?? null)
+  const [openId, setOpenId] = useState<string | null>(() => {
+    if (initialStageId && stages.some((s) => s.id === initialStageId)) {
+      return initialStageId
+    }
+    return stages[0]?.id ?? null
+  })
+
+  useEffect(() => {
+    if (initialStageId && stages.some((s) => s.id === initialStageId)) {
+      setOpenId(initialStageId)
+    }
+  }, [initialStageId, stages])
 
   return (
     <section aria-labelledby="process-map-heading" className="space-y-4">
@@ -41,8 +54,10 @@ export function ProcessTimeline({ stages }: Props) {
             {showTechnical && (
               <>
                 <span className="font-medium text-slate-800">
-                  Technician / Engineer path:
-                </span>{' '}
+                  {role === 'technician'
+                    ? 'Manager path:'
+                    : 'Engineer path:'}{' '}
+                </span>
                 adds mechanical context and operational risk prompts.
               </>
             )}

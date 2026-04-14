@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams, useSearchParams } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { SiteHeader } from '../components/layout/SiteHeader'
 import { PageContainer } from '../components/layout/PageContainer'
@@ -11,6 +11,8 @@ import { ModuleHeroStrip } from '../components/ui/ModuleHeroStrip'
 
 export function ModulePage() {
   const { moduleId } = useParams()
+  const [searchParams] = useSearchParams()
+  const stageParam = searchParams.get('stage')
   const mod = moduleId ? getModuleById(moduleId) : undefined
 
   if (!mod) {
@@ -40,7 +42,10 @@ export function ModulePage() {
             categoryLabel={CATEGORY_LABELS[mod.category]}
             minutes={mod.estimatedMinutes}
           />
-          <ProcessTimeline stages={mod.timeline} />
+          <ProcessTimeline
+            stages={mod.timeline}
+            initialStageId={stageParam}
+          />
           <div className="grid gap-8 lg:grid-cols-1">
             <SafetyInsightsPanel items={mod.safetyInsights} />
           </div>

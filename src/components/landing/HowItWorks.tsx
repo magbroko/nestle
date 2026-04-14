@@ -1,20 +1,20 @@
 import { motion } from 'framer-motion'
-import { QrCode, BookOpenCheck, Brain } from 'lucide-react'
+import { BookOpenCheck, Brain, UserCircle2 } from 'lucide-react'
 
 const steps = [
   {
-    title: 'Scan',
-    body: 'Use QR entry to jump directly into a line, utility, or safety module.',
-    icon: QrCode,
+    title: 'Select profile',
+    body: 'Choose New Hire, Engineer, or Manager to set information density before you enter the hub.',
+    icon: UserCircle2,
   },
   {
     title: 'Learn',
-    body: 'Follow expandable steps, highlighted components, and animated flows.',
+    body: 'Follow expandable factory stages, simplified flows, and safety context tailored to your path.',
     icon: BookOpenCheck,
   },
   {
     title: 'Understand',
-    body: 'Validate with quizzes and role-based paths that reinforce context.',
+    body: 'Validate retention with assessments and structured navigation across production pillars.',
     icon: Brain,
   },
 ]
@@ -34,11 +34,11 @@ export function HowItWorks() {
             How it works
           </p>
           <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-            Scan → Learn → Understand
+            Profile → Learn → Understand
           </h2>
           <p className="mt-3 text-slate-600">
-            A simple loop designed for high-retention learning on the plant
-            perimeter or remotely.
+            A disciplined flow for high-retention learning — from the perimeter
+            office to the line briefing room.
           </p>
         </motion.div>
 
